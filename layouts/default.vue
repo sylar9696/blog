@@ -1,5 +1,11 @@
+<!-- Questa pagina è un layout che viene rendirizzato su tutte le pagine che abbiamo creato -->
+
 <template>
   <div>
+    <!-- Questo menu verrà visto su tutte le pagine -->
+    <p>MENUBAR</p>
+    <a href="/posts">BLOG</a>
+    <a href="/about">ABOUT</a>
     <Nuxt />
   </div>
 </template>
