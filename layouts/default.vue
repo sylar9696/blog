@@ -8,7 +8,7 @@
     <a href="/posts">BLOG</a>
     <a href="/about">ABOUT</a>
     <!-- Inserisco il container prso dal tema di tailwind -->
-    <div class="container px-4 md:px-0 max-w-6xl mx-auto -mt-32">
+    <div class="container px-4 md:px-0 max-w-6xl mx-auto mt-32">
       <Nuxt />
     </div>
   </div>
