@@ -1,12 +1,11 @@
 <!-- Questa pagina è un layout che viene rendirizzato su tutte le pagine che abbiamo creato -->
 
+<!-- Layout che da effetto su tutte le pagine -->
 <template>
   <div>
     <!-- Questo menu verrà visto su tutte le pagine -->
-    <p>MENUBAR</p>
-    <a href="/">HOME</a>
-    <a href="/posts">BLOG</a>
-    <a href="/about">ABOUT</a>
+    <Header @sidenavToggle="sidenav = !sidenav"></Header>
+    <Sidenav :show="sidenav" @close="sidenav = false"></Sidenav>
     <!-- Inserisco la cover image  -->
     <div class="w-full m-0 p-0 bg-cover bg-bottom header-site">
 			<div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
@@ -19,6 +18,23 @@
     </div>
   </div>
 </template>
+
+<script>
+import Header from '~/components/Navigator/Header.vue'
+import Sidenav from '~/components/Navigator/Sidenav.vue'
+
+export default {
+  components : {
+    Header,
+    Sidenav
+  },
+  data() {
+    return {
+      sidenav : false
+    }
+  }
+}
+</script>
 
 <style>
 html {
