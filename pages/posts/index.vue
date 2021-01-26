@@ -2,14 +2,7 @@
 
 <template>
     <div>
-        <h1 class="title">
-            Lista dei post con anteprima
-        </h1>
-        <a href="/posts/1">POST 1</a>
-        <a href="/posts/2">POST 2</a>
-        <a href="/posts/3">POST 3</a>
-
-
+		<p class="text-white font-extrabold text-3xl md:text-5xl">Post</p>
         <!-- Codice per i post del tema di Tailwind -->
         <div class="flex flex-wrap justify-between pt-12 -mx-6">
 			<!-- All'interno di questo div "row" inseriamo un ciclo for per ciclare il nostro components -->
