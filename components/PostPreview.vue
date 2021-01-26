@@ -28,10 +28,6 @@
 					<p class="text-gray-600 text-xs md:text-sm"> {{ timeToRead }} </p>
 				</div>
 			</div>
-
-
-		
-
     </div>
 </template>
 
