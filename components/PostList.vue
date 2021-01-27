@@ -17,6 +17,11 @@
 						:tail="post.tail"
 					>
 					</PostPreview>
+                    <!-- Inserisco un button che permetterà di modificare il singolo post -->
+                    <!-- Tramite i props di isAdmin capisco se sono nella pagina Admin e perciò solo in quella mostrerò il bottone -->
+                    <button v-if="isAdmin" @click="linkToEdit(post.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Edit
+                    </button>
 			</div>
 		</div>
         <!-- Fine traferimento dalla pagina Blog -->
@@ -55,10 +60,20 @@ export default {
             ]
         }
     },
+    methods : {
+        /* creiamo un metodo che genera il link di modifca del post agganciandosi al suo id */
+        linkToEdit(id){
+            this.$router.push('admin/post/' + id);
+        }
+    },
     props : {
         type : {
             type : String,
             required : true
+        },
+        isAdmin : {
+            type : Boolean,
+            default : false
         }
     },
     mounted () {

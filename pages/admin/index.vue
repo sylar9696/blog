@@ -11,6 +11,7 @@
         <div class="pt-20">
             <p class="text-3xl">PostList</p>
             <!-- Inserisco il componente PostList così da avere tutti i post in questa pagina -->
+            <!-- Se c'è isAdmin all'interno come in questa pagina verranno mostrati i button di modifica -->
             <PostList type="all" isAdmin />
         </div>
     </div>
