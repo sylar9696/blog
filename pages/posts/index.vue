@@ -21,8 +21,19 @@ export default {
 	},
 	data() {
 		return {
-			
+			post : {
+				id : '4',
+				title : 'titolo di prova actionPost',
+				description : 'Descrizione actionPost di prova',
+				thumbnail : 'actionPost',
+				userImg : 'actionPost',
+				timeToRead : '1 MIN READ',
+				tail : '1/3'
+			}
 		}
+	},
+	mounted(){
+		this.$store.dispatch('actionPost', this.post)
 	}
 }
 </script>
