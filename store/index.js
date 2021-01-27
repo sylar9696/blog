@@ -3,21 +3,24 @@ import Vuex from 'vuex';
 const createStore = () => {
     return new Vuex.Store({
         state : {
-            post : {}
+            posts : []
         },
         mutations : {
-            setPost(state,post){
-                state.post = post;
+            setPost(state,posts){
+                state.posts = posts;
             }
         },
         actions : {
-            actionPost(context, post){
-                context.commit('setPost', post)
+            nuxtServerInit(context){
+
+            },
+            fetchPosts(context,post){
+                context.commit('setPosts', posts)
             }
         },
         getters : {
-            getPost(state){
-                return state.post;
+            getPosts(state){
+                return state.posts;
             }
         }
     })
