@@ -67,36 +67,37 @@
 <script>
 
 export default {
-  components: {
-    
-  },
-  props : {
-      post : {
-          type : Object,
-          required : false
-      }
-  },
-  data(){
-    return {
-        newPost : this.post ? { ...this.post } : 
-        {
-            id : '',
-            title : '',
-            description : '',
-            thumbnail : '',
-            userImg : '',
-            timeToRead : '1 MIN READ',
-            tail : '1/3',
+    components: {
+        
+    },
+    props : {
+        post : {
+            type : Object,
+            required : false
+        }
+    },
+    data(){
+        return {
+            /* Questa regola è scritta in ES6 e permette di creare un ogetto post con le informazioni in ingresso del form oppure di creare un ogetto con i campi vuoti se non vengono compilati */
+            newPost : this.post ? { ...this.post } : 
+            {
+                id : '',
+                title : '',
+                description : '',
+                thumbnail : '',
+                userImg : '',
+                timeToRead : '1 MIN READ',
+                tail : '1/3',
+            }
+        }
+    },
+    methods : {
+        save(){
+        console.log(this.newPost)
+        },
+        cancel(){
+        this.$router.push('/admin');
         }
     }
-  },
-  methods : {
-    save(){
-      console.log(this.newPost)
-    },
-    cancel(){
-      this.$router.push('/admin');
-    }
-  }
 }
 </script>
