@@ -81,20 +81,19 @@ export default {
             /* Questa regola è scritta in ES6 e permette di creare un ogetto post con le informazioni in ingresso del form oppure di creare un ogetto con i campi vuoti se non vengono compilati */
             newPost : this.post ? { ...this.post } : 
             {
-                id : '4',
-                title : 'titolo',
-                description : 'test test',
-                thumbnail : 'test',
-                userImg : 'test',
-                timeToRead : '1 MIN READ',
-                tail : '1/3',
+                title : 'Lorem ipsum dolor sit amet.',
+                description : 'Lorem ipsum eu nunc commodo posudue',
+                thumbnail : 'https://source.unsplash.com/collection/225/800x600',
+                userImg : 'http://i.pravatar.cc/300',
+                timeToRead : '1MIN READ',
+                tail : '1/3'
             }
         }
     },
     methods : {
         save(){
             //console.log(this.newPost);
-            this.$emit('save', this.newPost);
+            this.$emit('save', {...this.newPost,updateDate : new Date()});
         },
         cancel(){
         this.$router.push('/admin');

@@ -42,7 +42,7 @@ export default {
         return {
             posts : [],
             /* Reinserisco i dati dell'array del componente PostPreview */
-            allPosts : [
+            /*allPosts : [
 				{ id : '1', tail : '1/3', title : 'Lorem ipsum dolor sit amet.', description : 'Lorem ipsum eu nunc commodo posudue', thumbnail : 'https://source.unsplash.com/collection/225/800x600', userImg : 'http://i.pravatar.cc/300', timeToRead : '1MIN READ'},
 				{ id : '2', tail : '1/3', title : 'Lorem ipsum dolor sit amet.', description : 'Lorem ipsum eu nunc commodo posudue', thumbnail : 'https://source.unsplash.com/collection/3106804/800x600', userImg : 'http://i.pravatar.cc/300', timeToRead : '1MIN READ'},
 				{ id : '3', tail : '1/3', title : 'Lorem ipsum dolor sit amet.', description : 'Lorem ipsum eu nunc commodo posudue', thumbnail : 'https://source.unsplash.com/collection/3657445/800x600', userImg : 'http://i.pravatar.cc/300', timeToRead : '1MIN READ'},
@@ -57,7 +57,10 @@ export default {
 				{ id : '8', tail : '1/2', title : 'Lorem ipsum dolor sit amet.', description : 'Lorem ipsum eu nunc commodo posudue', thumbnail : 'https://source.unsplash.com/collection/3106804/800x600', userImg : 'http://i.pravatar.cc/300', timeToRead : '1MIN READ'},
 				{ id : '9', tail : '1/2', title : 'Lorem ipsum dolor sit amet.', description : 'Lorem ipsum eu nunc commodo posudue', thumbnail : 'https://source.unsplash.com/collection/3657445/800x600', userImg : 'http://i.pravatar.cc/300', timeToRead : '1MIN READ'},
 				{ id : '10', tail : '1/2', title : 'Lorem ipsum dolor sit amet.', description : 'Lorem ipsum eu nunc commodo posudue', thumbnail : 'https://source.unsplash.com/collection/764827/800x600', userImg : 'http://i.pravatar.cc/300', timeToRead : '1MIN READ'},
-            ]
+            ] */
+
+
+
         }
     },
     methods : {
@@ -78,10 +81,16 @@ export default {
     },
     mounted () {
         /* durante il montaggio del componente controlla se il type di input è uguale a "all" oppure "last" e sostituisci all'array posts vuoto uno dei due array pieni e crea il componente */
-        if(this.type == 'all'){
+        /*if(this.type == 'all'){
             this.posts = this.allPosts;
         } else if(this.type == 'last'){
             this.posts = this.lastPosts;
+        }*/
+        /* Recuperiamo non più l'array fake ma bensì i post che creiamo e salviamo su firebase però non funziona più il ciclo per capire se il type è all o last */
+        if(this.type == 'all'){
+            this.posts = this.$store.getters.getPosts;
+        } else if(this.type == 'last'){
+            this.posts = this.$store.getters.getPosts;
         }
     }
 }
