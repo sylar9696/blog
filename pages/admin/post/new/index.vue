@@ -38,7 +38,7 @@ export default {
         newSavePost(postDaForm){
             this.loading = true;
             console.log(postDaForm)
-            axios.post('https://nuxt-alessandro-corso-default-rtdb.firebaseio.com/posts.json',postDaForm)
+            this.$store.dispatch('addPost', postDaForm)
             .then(result => {
                 console.log(result)
                 this.loading = false;

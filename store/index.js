@@ -9,6 +9,13 @@ const createStore = () => {
         mutations : {
             setPosts(state,posts){
                 state.posts = posts;
+            },
+            newPost(state, newPost){
+                state.posts.push(newPost);
+            },
+            editPost(state, editPost){
+                const index = state.posts.findIndex(post => post.id == editPost.id);
+                state.posts[index] = editPost;
             }
         },
         actions : {
@@ -25,6 +32,28 @@ const createStore = () => {
                 })
                 .catch(err => console.log(err));
             },
+            addPost(context,newPost){
+                return axios.post('https://nuxt-alessandro-corso-default-rtdb.firebaseio.com/posts.json',newPost)
+                .then(result => {
+                    console.log(result.data.name)
+                    context.commit('newPost', { ...newPost , id : result.data.name })
+                })
+                .catch(result => {
+                    console.log(error)
+                    this.loading = false;
+                });
+            },
+            editPost(context,editPost){
+                return axios.put(`https://nuxt-alessandro-corso-default-rtdb.firebaseio.com/posts/${editPost.postId}.json`,editPost)
+                    .then(result => {
+                        console.log(result.data.name)
+                        context.commit('editPost', editPost)
+                    })
+                    .catch(result => {
+                        console.log(error)
+                        this.loading = false;
+                    });
+            },
             fetchPosts(context,post){
                 context.commit('setPosts', posts)
             }
@@ -32,6 +61,10 @@ const createStore = () => {
         getters : {
             getPosts(state){
                 return state.posts;
+            },
+            getPost : (state) => (postId) => {
+                const p = state.posts.find(post => post.id == postId);
+                return p ? p : null;
             }
         }
     })

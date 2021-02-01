@@ -52,7 +52,7 @@ export default {
         editSavePost(postDaForm){
             this.loading = true;
             console.log(postDaForm)
-            axios.put(`https://nuxt-alessandro-corso-default-rtdb.firebaseio.com/posts/${this.$route.params.postId}.json`,postDaForm)
+            this.$store.dispatch('editPost', postDaForm)
             .then(result => {
                 console.log(result)
                 this.loading = false;
